@@ -11,11 +11,12 @@
             http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 			">
 
+
     <!-- Root Context: defines shared resources visible to all other web components -->
     <context:component-scan base-package="me.shaw.yoda.user">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
     </context:component-scan>
-    <context:component-scan base-package="me.shaw.yoda.aspect"></context:component-scan>
+
 
     <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
@@ -29,7 +30,7 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
 
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
     <import resource="db-context.xml"/>
     <!--<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
         <!--<property name="defaultEncoding">-->
