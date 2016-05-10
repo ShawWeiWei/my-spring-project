@@ -12,10 +12,28 @@
 			">
 
     <!-- Root Context: defines shared resources visible to all other web components -->
+    <context:component-scan base-package="me.shaw.yoda.user">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
+    </context:component-scan>
+    <context:component-scan base-package="me.shaw.yoda.aspect"></context:component-scan>
 
-    <bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding">
-            <value>utf-8</value>
+    <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <!--&lt;!&ndash;本地环境 &ndash;&gt;-->
+            <list>
+                <value>classpath:database.properties</value>
+            </list>
         </property>
+        <property name="fileEncoding" value="UTF-8"/>
+        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <import resource="db-context.xml"/>
+    <!--<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="defaultEncoding">-->
+            <!--<value>utf-8</value>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>

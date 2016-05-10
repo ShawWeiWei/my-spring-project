@@ -1,11 +1,7 @@
-package me.shaw.yoda.user.dto;
-
+package me.shaw.yoda.user.model;
 import java.sql.Timestamp;
 
-/**
- * Created by yes on 7/5/16.
- */
-public class UserDto {
+public class User {
     private Long id;
 
     private String name;
@@ -22,7 +18,7 @@ public class UserDto {
 
     @Override
     public String toString() {
-        return "UserDto{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
@@ -33,7 +29,7 @@ public class UserDto {
                 '}';
     }
 
-    public UserDto() {
+    public User() {
     }
 
     public Long getId() {
