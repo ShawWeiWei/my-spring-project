@@ -11,4 +11,25 @@ public interface UserService {
      * Get info by user id
      */
     UserDto getUserInfoById(String id) throws ServiceException;
+
+    /**
+     * test transaction propagate
+     */
+    void testTransaction() throws ServiceException;
+
+    /**
+     * test wrapper
+     */
+    void twoInsertAndThrowWrapper();
+
+    /**
+     *
+     */
+    void twoInsertAndThrow();
+
+    void testNotSupport() throws ServiceException;
+
+    void notSupportedMethod() throws ServiceException;
+
+    String getById(Long id) throws ServiceException;
 }

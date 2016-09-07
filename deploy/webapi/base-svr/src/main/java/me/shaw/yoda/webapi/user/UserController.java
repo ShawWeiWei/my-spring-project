@@ -31,4 +31,14 @@ public class UserController {
         return userService.getUserInfoById("1");
     }
 
+    @RequestMapping("/testTransaction")
+    public
+    @ResponseBody
+    UserDto
+    testTransaction() throws ServiceException {
+        log.info("testTransaction");
+        userService.testTransaction();
+        return new UserDto();
+    }
+
 }

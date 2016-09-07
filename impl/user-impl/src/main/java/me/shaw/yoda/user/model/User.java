@@ -1,4 +1,5 @@
 package me.shaw.yoda.user.model;
+import java.lang.reflect.Method;
 import java.sql.Timestamp;
 
 public class User {
@@ -15,6 +16,8 @@ public class User {
     private Timestamp createdAt;
 
     private Timestamp updatedAt;
+
+    private String detailJson;
 
     @Override
     public String toString() {
@@ -87,5 +90,19 @@ public class User {
 
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getDetailJson() {
+        return detailJson;
+    }
+
+    public void setDetailJson(String detailJson) {
+        this.detailJson = detailJson;
+    }
+
+    public static void main(String[] args) throws NoSuchMethodException {
+        User user = new User();
+        Method setId = User.class.getDeclaredMethod("setId",new Class[]{Object.class});
+        System.out.println(setId);
     }
 }

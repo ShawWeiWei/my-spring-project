@@ -13,9 +13,12 @@
 
 
     <!-- Root Context: defines shared resources visible to all other web components -->
-    <context:component-scan base-package="me.shaw.yoda.user">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
-    </context:component-scan>
+    <!--<context:component-scan base-package="me.shaw.yoda.user">-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>-->
+    <!--</context:component-scan>-->
+    <bean id="userService" class="me.shaw.yoda.user.service.impl.UserServiceImpl">
+
+    </bean>
 
 
     <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -30,6 +33,9 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
 
+    <context:component-scan base-package="me.shaw.yoda.aspect"></context:component-scan>
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <context:annotation-config/>
 
     <import resource="db-context.xml"/>
     <!--<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->

@@ -7,13 +7,12 @@
     <parent>
         <groupId>me.shaw</groupId>
         <artifactId>webapi</artifactId>
-        <version>${sargeras.version}</version>
+        <version>0.1.0-SNAPSHOT</version>
 
     </parent>
     <groupId>me.shaw</groupId>
     <artifactId>base-svr</artifactId>
     <packaging>war</packaging>
-    <version>${sargeras.version}</version>
 
 
 

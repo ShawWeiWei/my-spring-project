@@ -1,0 +1,31 @@
+package me.shaw.test.concurrent;
+
+/**
+ * Created by yes on 17/6/16.
+ */
+public class Counting {
+    public static void main(String[] args) throws InterruptedException {
+        class Counter {
+            private int count = 0;
+            synchronized public void increment() {
+                count++;
+            }
+            public int getCount(){
+                return count;
+            }
+        }
+        final Counter counter = new Counter();
+        class CountingThread extends Thread {
+            public void run(){
+                for(int x = 0;x<100000;++x){
+                    counter.increment();
+                }
+            }
+        }
+        CountingThread t1 = new CountingThread();
+        CountingThread t2 = new CountingThread();
+        t1.start(); t2.start();
+        t1.join(); t2.join();
+        System.out.println(counter.getCount());
+    }
+}

@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class PrintAop {
     public static final Log logger = LogFactory.getLog(PrintAop.class);
 
-    @Pointcut(value = "@annotation(org.springframework.web.bind.annotation.RequestMapping)")
+    @Pointcut(value = "@annotation(org.springframework.stereotype.Service)")
     public void recordLog(){
 
     }
@@ -26,10 +26,12 @@ public class PrintAop {
     @Before(value = "recordLog()")
     public void printBefore(JoinPoint jp){
         logger.info("Before "+(MethodSignature)jp.getSignature());
+        System.out.println("Hello World!");
     }
 
     @After(value = "recordLog()")
     public void printAfter(JoinPoint joinPoint) {
         logger.info("After " + joinPoint.getSignature());
+        System.out.println("Hello World!");
     }
 }

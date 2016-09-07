@@ -8,8 +8,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <sargeras.version>0.1.0-SNAPSHOT</sargeras.version>
-        <sargeras-common.version>0.1.0-SNAPSHOT</sargeras-common.version>
+        <yoda.version>0.1.0-SNAPSHOT</yoda.version>
 
 
         <!-- Jackson -->
@@ -29,12 +28,14 @@
     <groupId>me.shaw</groupId>
     <artifactId>iface</artifactId>
     <packaging>pom</packaging>
-    <version>${sargeras.version}</version>
-
+    <version>0.1.0-SNAPSHOT</version>
 
     <modules>
         <module>user</module>
+        <module>session</module>
+        <module>common</module>
         <module>../impl</module>
+        <module>../test</module>
     </modules>
 
     <dependencies>
@@ -80,18 +81,6 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<version>2.5.1</version>-->
-                <!--<configuration>-->
-                    <!--<source>${java.version}</source>-->
-                    <!--<target>${java.version}</target>-->
-                    <!--<compilerArgument>-Xlint:all</compilerArgument>-->
-                    <!--<showWarnings>true</showWarnings>-->
-                    <!--<showDeprecation>true</showDeprecation>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 
